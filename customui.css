@@ -1,0 +1,64 @@
+/* Estética ImGui / CustomUI (BakkesMod) */
+#pad-status { display: none; margin-top: 4px; color: #ffb547; font-weight: 600; }
+
+#cui-gear {
+  position: fixed; top: 10px; right: 10px; z-index: 40;
+  width: 40px; height: 40px; border-radius: 6px;
+  border: 1px solid #3d4a5c; background: rgba(20, 26, 36, .85);
+  color: #ffb547; font-size: 20px; cursor: pointer;
+}
+#cui-root {
+  display: none; position: fixed; inset: 0; z-index: 50;
+  background: rgba(0, 0, 0, .45); align-items: center; justify-content: center;
+  font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; color: #e6e9ef;
+}
+#cui-root.open { display: flex; }
+.cui-window {
+  width: min(520px, 94vw); max-height: 88vh; display: flex; flex-direction: column;
+  background: rgba(15, 18, 24, .96); border: 1px solid #2e3746; border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .6);
+}
+.cui-title {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 6px 10px; background: #1d2633; border-bottom: 1px solid #2e3746;
+  font-weight: 600; letter-spacing: .2px;
+}
+.cui-title button { background: none; border: 0; color: #9aa7b8; font-size: 15px; cursor: pointer; }
+.cui-tabs { display: flex; gap: 2px; padding: 6px 8px 0; border-bottom: 2px solid #c27716; }
+.cui-tab {
+  padding: 5px 14px; border: 0; border-radius: 4px 4px 0 0; cursor: pointer;
+  background: #232c3a; color: #b8c2d0; font: inherit;
+}
+.cui-tab:hover { background: #2f3b4d; }
+.cui-tab.active { background: #c27716; color: #fff; }
+.cui-body { padding: 10px 12px; overflow-y: auto; }
+.cui-sep {
+  margin: 8px 0 6px; color: #ffb547; font-weight: 600; display: flex; align-items: center; gap: 8px;
+}
+.cui-sep::after { content: ""; flex: 1; height: 1px; background: #2e3746; }
+.cui-row { display: grid; grid-template-columns: 1fr 1.3fr; align-items: center; gap: 10px; margin: 5px 0; }
+.cui-row label { color: #cfd6e0; }
+.cui-slider {
+  position: relative; height: 22px; border-radius: 3px; overflow: hidden;
+  background: linear-gradient(90deg, #8a5410 var(--p), #232c3a var(--p));
+}
+.cui-slider input { position: absolute; inset: 0; width: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.cui-val { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; font-size: 12px; }
+.cui-check { display: flex; align-items: center; gap: 8px; margin: 7px 0; cursor: pointer; }
+.cui-check input { display: none; }
+.cui-check span { width: 18px; height: 18px; border-radius: 3px; background: #232c3a; display: grid; place-items: center; }
+.cui-check input:checked + span { background: #c27716; }
+.cui-check input:checked + span::after { content: "✓"; color: #fff; font-size: 13px; }
+.cui-bind { display: grid; grid-template-columns: 1fr 1.2fr auto; gap: 6px; align-items: center; margin: 4px 0; }
+.cui-btn {
+  padding: 5px 10px; border: 0; border-radius: 3px; cursor: pointer; font: inherit;
+  background: #2a3546; color: #e6e9ef;
+}
+.cui-btn:hover { background: #3a4a62; }
+.cui-btn.small { padding: 5px 8px; color: #9aa7b8; }
+.cui-btn.primary { background: #c27716; color: #fff; }
+.cui-btn.waiting { background: #8a5410; animation: cuiPulse 1s infinite; }
+@keyframes cuiPulse { 50% { opacity: .55; } }
+.cui-info { color: #b8c2d0; margin: 6px 0 10px; line-height: 1.4; word-break: break-word; }
+#cui-vis { width: 100%; height: auto; background: #10151d; border: 1px solid #2e3746; border-radius: 3px; }
+.cui-footer { display: flex; justify-content: space-between; margin-top: 14px; }
